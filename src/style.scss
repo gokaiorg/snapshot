@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import './vars';
 @import '~@primer/css';
 @import './assets/fonts/iconfont.css';
