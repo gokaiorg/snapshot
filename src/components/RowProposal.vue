@@ -1,13 +1,13 @@
 <template>
   <router-link
-    class="px-4 py-3 d-block text-gray"
+    class="px-6 py-4 block text-gray"
     :to="{ name: 'proposal', params: { key: space.key, id: i } }"
   >
     <div>
-      <State :proposal="proposal" class="d-inline-block mr-2 mb-2" />
+      <State :proposal="proposal" class="inline-block mr-2 mb-2" />
       <h3
         v-text="_shorten(proposal.msg.payload.name, 'name')"
-        class="d-inline-block mb-1"
+        class="inline-block mb-1"
       />
     </div>
     <div>

@@ -1,5 +1,5 @@
 <template>
-  <span class="d-inline-block v-align-middle line-height-0">
+  <span class="inline-block align-middle line-height-0">
     <img
       v-if="!error"
       :src="url"
@@ -8,7 +8,7 @@
         height: `${size || 22}px`
       }"
       @error="error = true"
-      class="circle border line-height-0"
+      class="rounded-full border line-height-0"
     />
     <Avatar v-else :address="spaceAddress" :size="size" />
   </span>

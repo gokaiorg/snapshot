@@ -7,7 +7,7 @@
       <h3 v-else>{{ $t('account') }}</h3>
     </template>
     <div v-if="!web3.account || step === 'connect'">
-      <div class="m-4 mb-5">
+      <div class="m-6 mb-8">
         <a
           v-for="(connector, id, i) in connectors"
           :key="i"
@@ -17,25 +17,25 @@
         >
           <UiButton
             v-if="id !== 'injected'"
-            class="button-outline width-full v-align-middle"
+            class="button-outline w-full align-middle"
           >
             <img
               :src="`${path}/${connector.id}.png`"
               height="28"
               width="28"
-              class="mr-1 v-align-middle"
+              class="mr-1 align-middle"
             />
             {{ connector.name }}
           </UiButton>
           <UiButton
             v-else-if="injected"
-            class="button-outline width-full v-align-middle"
+            class="button-outline w-full align-middle"
           >
             <img
               :src="`${path}/${injected.id}.png`"
               height="28"
               width="28"
-              class="mr-1 v-align-middle"
+              class="mr-1 align-middle"
             />
             {{ injected.name }}
           </UiButton>
@@ -47,14 +47,14 @@
         <a
           :href="_explorer(web3.network.key, web3.account)"
           target="_blank"
-          class="mb-2 d-block"
+          class="mb-2 block"
         >
-          <UiButton class="button-outline width-full">
+          <UiButton class="button-outline w-full">
             <Avatar
               :profile="web3.profile"
               :address="web3.account"
               size="16"
-              class="mr-2 ml-n1"
+              class="mr-2 -ml-1"
             />
             <span v-if="web3.profile.name" v-text="web3.profile.name" />
             <span v-else-if="web3.profile.ens" v-text="web3.profile.ens" />
@@ -66,9 +66,9 @@
           v-if="web3.profile?.name || web3.profile?.image"
           :href="`https://3box.io/${web3.account}/edit`"
           target="_blank"
-          class="mb-2 d-block"
+          class="mb-2 block"
         >
-          <UiButton class="button-outline width-full">
+          <UiButton class="button-outline w-full">
             {{ $t('edit3box') }}
             <Icon name="external-link" class="ml-1" />
           </UiButton>
@@ -79,20 +79,20 @@
           target="_blank"
           class="mb-2 d-block"
         >
-          <UiButton class="button-outline width-full">
+          <UiButton class="button-outline w-full">
             {{ $t('create3box') }}
             <Icon name="external-link" class="ml-1" />
           </UiButton>
         </a>
         <UiButton
           @click="step = 'connect'"
-          class="button-outline width-full mb-2"
+          class="button-outline w-full mb-2"
         >
           {{ $t('connectWallet') }}
         </UiButton>
         <UiButton
           @click="handleLogout"
-          class="button-outline width-full text-red mb-2"
+          class="button-outline w-full text-red mb-2"
         >
           {{ $t('logout') }}
         </UiButton>

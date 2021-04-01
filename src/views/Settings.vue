@@ -1,23 +1,23 @@
 <template>
   <Layout>
     <template #content-left>
-      <div class="px-4 px-md-0 mb-3">
+      <div class="px-6 md:px-0 mb-4">
         <router-link :to="{ name: 'home' }" class="text-gray">
-          <Icon name="back" size="22" class="v-align-middle" />
+          <Icon name="back" size="22" class="align-middle" />
           {{ $t('backToHome') }}
         </router-link>
       </div>
-      <div class="px-4 px-md-0">
+      <div class="px-6 px-md-0">
         <h1 v-if="loaded" v-text="$t('settings.header')" class="mb-4" />
         <PageLoading v-else />
       </div>
       <template v-if="loaded">
         <Block title="ENS">
-          <UiButton class="d-flex width-full mb-2">
+          <UiButton class="flex w-full mb-2">
             <input
               readonly
               v-model="contenthash"
-              class="input width-full"
+              class="input w-full"
               :placeholder="$t('contectHash')"
             />
             <Icon
@@ -31,11 +31,11 @@
           <a
             :href="`https://app.ens.domains/name/${key}`"
             target="_blank"
-            class="mb-2 d-block"
+            class="mb-2 block"
           >
             <UiButton
               :class="!isReady && 'button--submit'"
-              class="button-outline width-full"
+              class="button-outline w-full"
             >
               {{ isReady ? $t('settings.seeENS') : $t('settings.setENS') }}
               <Icon name="external-link" class="ml-1" />
@@ -54,13 +54,13 @@
                   <Icon name="external-link" class="ml-1" />
                 </UiButton>
               </a>
-              <UiButton class="text-left width-full mb-2 d-flex px-3">
+              <UiButton class="text-left w-full mb-2 flex px-3">
                 <div class="text-gray mr-2">{{ $t('settings.name') }}</div>
                 <input v-model="form.name" class="input flex-auto" required />
               </UiButton>
               <UiButton
                 @click="modalNetworksOpen = true"
-                class="text-left width-full mb-2 d-flex px-3"
+                class="text-left w-full mb-2 flex px-3"
               >
                 <div class="text-gray mr-2">{{ $t('network') }}</div>
                 <div class="flex-auto">
@@ -71,31 +71,31 @@
                   }}
                 </div>
               </UiButton>
-              <UiButton class="text-left width-full mb-2 d-flex px-3">
+              <UiButton class="text-left w-full mb-2 flex px-3">
                 <div class="text-gray mr-2">{{ $t('settings.symbol') }}</div>
                 <input v-model="form.symbol" class="input flex-auto" required />
               </UiButton>
               <UiButton
                 @click="modalSkinsOpen = true"
-                class="text-left width-full mb-2 d-flex px-3"
+                class="text-left w-full mb-2 flex px-3"
               >
                 <div class="text-gray mr-2">{{ $t('settings.skin') }}</div>
                 <div class="flex-auto">
                   {{ form.skin ? form.skin : $t('defaultSkin') }}
                 </div>
               </UiButton>
-              <UiButton class="text-left width-full mb-2 d-flex px-3">
+              <UiButton class="text-left w-full mb-2 flex px-3">
                 <div class="text-gray mr-2">{{ $t('settings.domain') }}</div>
                 <input v-model="form.domain" class="input flex-auto" />
                 <a
-                  class="d-block py-1 mr-n2"
+                  class="block py-1 mr-n2"
                   target="_blank"
                   href="https://docs.snapshot.org/spaces/add-custom-domain"
                 >
                   <Icon name="info" size="24" class="text-gray p-1" />
                 </a>
               </UiButton>
-              <div class="d-flex flex-items-center px-2">
+              <div class="flex items-center px-2">
                 <Checkbox v-model="form.private" class="mr-2 mt-1" />
                 {{ $t('settings.hideSpace') }}
               </div>
@@ -105,7 +105,7 @@
             <div
               v-for="(strategy, i) in form.strategies"
               :key="i"
-              class="mb-3 position-relative"
+              class="mb-4 relative"
             >
               <a
                 @click="handleRemoveStrategy(i)"
@@ -115,18 +115,18 @@
               </a>
               <a
                 @click="handleEditStrategy(i)"
-                class="p-4 d-block border rounded-2"
+                class="p-6 block border rounded-2"
               >
                 <h4 v-text="strategy.name" />
               </a>
             </div>
-            <UiButton @click="handleAddStrategy" class="d-block width-full">
+            <UiButton @click="handleAddStrategy" class="block w-full">
               {{ $t('settings.addStrategy') }}
             </UiButton>
           </Block>
 
           <Block :title="$t('settings.members')">
-            <UiButton class="d-block width-full px-3" style="height: auto;">
+            <UiButton class="block w-full px-3" style="height: auto;">
               <TextareaArray
                 v-model="form.members"
                 :placeholder="
@@ -139,7 +139,7 @@
           </Block>
           <Block :title="$t('settings.filters')">
             <div class="mb-2">
-              <UiButton class="text-left width-full mb-2 d-flex px-3">
+              <UiButton class="text-left w-full mb-2 flex px-3">
                 <div class="text-gray mr-2">
                   {{ $t('settings.defaultTab') }}
                 </div>
@@ -148,13 +148,13 @@
                   class="input flex-auto"
                 />
               </UiButton>
-              <UiButton class="text-left width-full mb-2 d-flex px-3">
+              <UiButton class="text-left w-full mb-2 flex px-3">
                 <div class="text-gray mr-2">{{ $t('settings.minScore') }}</div>
                 <div class="flex-auto">
                   <InputNumber v-model="form.filters.minScore" class="input" />
                 </div>
               </UiButton>
-              <div class="mb-2 d-flex flex-items-center px-2">
+              <div class="mb-2 flex items-center px-2">
                 <Checkbox
                   v-model="form.filters.onlyMembers"
                   class="mr-2 mt-1"
@@ -169,7 +169,7 @@
                       'invalidProposals'
                     )}\nQmc4VSHwY3SVmo4oofhL2qDPaYcGaQqndM4oqdQQe2aZHQ\nQmTMAgnPy2q6LRMNwvj27PHvWEgZ3bw7yTtNNEucBZCWhZ`
                   "
-                  class="input width-full text-left"
+                  class="input w-full text-left"
                   style="font-size: 18px;"
                 />
               </UiButton>
@@ -180,18 +180,18 @@
               <div
                 v-for="(plugin, name, index) in form.plugins"
                 :key="index"
-                class="mb-3 position-relative"
+                class="mb-3 relative"
               >
                 <div v-if="pluginName(name)">
                   <a
                     @click="handleRemovePlugins(name)"
-                    class="position-absolute p-4 right-0"
+                    class="absolute p-4 right-0"
                   >
                     <Icon name="close" size="12" />
                   </a>
                   <a
                     @click="handleEditPlugins(name)"
-                    class="p-4 d-block border rounded-2"
+                    class="p-6 block border rounded-2"
                   >
                     <h4 v-text="pluginName(name)" />
                   </a>
@@ -214,7 +214,7 @@
           @click="handleSubmit"
           :disabled="!isValid"
           :loading="loading"
-          class="d-block width-full button--submit"
+          class="block w-full button--submit"
         >
           {{ $t('save') }}
         </UiButton>

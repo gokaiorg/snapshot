@@ -1,13 +1,13 @@
 <template>
   <Layout>
     <template #content-left>
-      <div class="px-4 px-md-0 mb-3">
+      <div class="px-6 md:px-0 mb-4">
         <router-link :to="{ name: 'home' }" class="text-gray">
           <Icon name="back" size="22" class="v-align-middle" />
           {{ $t('backToHome') }}
         </router-link>
       </div>
-      <div class="px-4 px-md-0">
+      <div class="px-6 md:px-0">
         <h1 v-if="loaded" v-text="$t('delegate.header')" class="mb-4" />
         <PageLoading v-else />
       </div>
@@ -37,7 +37,7 @@
             v-for="(delegate, i) in delegates"
             :key="i"
             :style="i === 0 && 'border: 0 !important;'"
-            class="px-4 py-3 border-top d-flex"
+            class="px-6 py-4 border-t flex"
           >
             <User
               :address="delegate.delegate"
@@ -64,7 +64,7 @@
             v-for="(delegator, i) in delegators"
             :key="i"
             :style="i === 0 && 'border: 0 !important;'"
-            class="px-4 py-3 border-top d-flex"
+            class="px-6 py-4 border-t flex"
           >
             <User
               :address="delegator.delegator"

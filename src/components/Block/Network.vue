@@ -1,6 +1,6 @@
 <template>
   <Block>
-    <div class="d-flex flex-items-baseline">
+    <div class="flex flex-items-baseline">
       <h3 v-text="network.name" />
       <div v-text="network.key" class="ml-1 text-gray" />
     </div>
