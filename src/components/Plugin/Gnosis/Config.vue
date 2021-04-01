@@ -1,12 +1,12 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <div class="mb-2 text-center">
-      <h4 class="mb-3">{{ $t('marketDetails') }}</h4>
+      <h4 class="mb-4">{{ $t('marketDetails') }}</h4>
       <UiButton @click="addAction" v-if="!input" class="width-full mb-2">
         {{ $t('addMarket') }}
       </UiButton>
       <div v-else-if="!preview">
-        <UiButton class="width-full mb-2">
+        <UiButton class="w-full mb-2">
           <select
             v-model="input.network"
             class="input width-full text-center"
@@ -20,28 +20,28 @@
         <UiButton class="width-full mb-2">
           <input
             v-model="input.conditionId"
-            class="input width-full text-center"
+            class="input w-full text-center"
             :placeholder="$t('conditionId')"
             required
           />
         </UiButton>
-        <UiButton class="width-full mb-2">
+        <UiButton class="w-full mb-2">
           <input
             v-model="input.baseTokenAddress"
-            class="input width-full text-center"
+            class="input w-full text-center"
             :placeholder="$t('basetokenAddress')"
             required
           />
         </UiButton>
-        <UiButton class="width-full mb-2">
+        <UiButton class="w-full mb-2">
           <input
             v-model="input.quoteCurrencyAddress"
-            class="input width-full text-center"
+            class="input w-full text-center"
             :placeholder="$t('quoteAddress')"
             required
           />
         </UiButton>
-        <UiButton v-if="input" @click="removeAction" class="width-full mb-2">
+        <UiButton v-if="input" @click="removeAction" class="w-full mb-2">
           {{ $t('removeMarket') }}
         </UiButton>
       </div>
@@ -56,17 +56,17 @@
       v-if="!preview && input"
       :disabled="!isValid && input !== false"
       @click="preview = true"
-      class="width-full mb-2"
+      class="w-full mb-2"
     >
       {{ $t('create.preview') }}
     </UiButton>
-    <UiButton v-if="preview" @click="preview = false" class="width-full mb-2">
+    <UiButton v-if="preview" @click="preview = false" class="w-full mb-2">
       {{ $t('back') }}
     </UiButton>
     <UiButton
       :disabled="!isValid"
       @click="handleSubmit"
-      class="button--submit width-full"
+      class="button--submit w-full"
     >
       {{ $t('confirm') }}
     </UiButton>

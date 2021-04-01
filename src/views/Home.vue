@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="text-center mb-4 mx-auto">
-      <Container class="d-flex flex-items-center">
+    <div class="text-center mb-6 mx-auto">
+      <Container class="flex items-center">
         <div class="flex-auto text-left">
           <UiButton class="pl-3 col-12 col-lg-4">
             <Search v-model="q" :placeholder="$t('searchPlaceholder')" />
@@ -16,42 +16,40 @@
       </Container>
     </div>
     <Container :slim="true">
-      <div class="overflow-hidden mr-n4">
+      <div class="grid grid-cols-4 gap-6">
         <router-link
           v-for="space in spaces.slice(0, limit)"
           :key="space.key"
           :to="{ name: 'proposals', params: { key: space.key } }"
         >
-          <div class="col-12 col-lg-3 pr-4 float-left">
-            <Block
-              class="text-center extra-icon-container"
-              style="height: 250px; margin-bottom: 24px !important;"
-            >
-              <span class="position-relative d-inline-block">
-                <UiCounter
-                  v-if="space._activeProposals"
-                  :counter="space._activeProposals"
-                  class="position-absolute top-4 right-0 bg-green"
-                />
-                <Token
-                  :space="space.key"
-                  symbolIndex="space"
-                  size="98"
-                  class="my-3"
-                />
-              </span>
-              <StatefulIcon
-                :on="space.favorite"
-                onName="star"
-                offName="star1"
-                @click="toggleFavorite(space.key)"
+          <Block
+            class="text-center extra-icon-container"
+            style="height: 250px; margin-bottom: 24px !important;"
+          >
+            <span class="relative inline-block">
+              <UiCounter
+                v-if="space._activeProposals"
+                :counter="space._activeProposals"
+                class="absolute top-6 right-0 counter-green"
               />
-              <div class="">
-                <h3 v-text="space.name" />
-                <div class="text-gray">{{ space.symbol }}</div>
-              </div>
-            </Block>
-          </div>
+              <Token
+                :space="space.key"
+                symbolIndex="space"
+                size="98"
+                class="my-4"
+              />
+            </span>
+            <StatefulIcon
+              :on="space.favorite"
+              onName="star"
+              offName="star1"
+              @click="toggleFavorite(space.key)"
+            />
+            <div class="">
+              <h3 v-text="space.name" />
+              <div class="text-gray">{{ space.symbol }}</div>
+            </div>
+          </Block>
         </router-link>
         <NoResults
           :block="true"

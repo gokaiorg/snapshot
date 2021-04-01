@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-4 mx-auto">
-      <Container class="d-flex flex-items-center">
+      <Container class="flex items-center">
         <div class="flex-auto text-left">
           <UiButton class="pl-3 col-12 col-lg-4">
             <Search v-model="q" :placeholder="$t('searchPlaceholder')" />
@@ -34,7 +34,7 @@
             v-for="item in items.slice(0, limit)"
             :key="item.key"
             :skin="item"
-            class="mb-3"
+            class="mb-4"
           />
         </template>
         <template v-if="route === 'networks'">
@@ -42,7 +42,7 @@
             v-for="item in items.slice(0, limit)"
             :key="item.key"
             :network="item"
-            class="mb-3"
+            class="mb-4"
           />
         </template>
         <template v-if="route === 'plugins'">
@@ -50,7 +50,7 @@
             v-for="item in items.slice(0, limit)"
             :key="item.key"
             :plugin="item"
-            class="mb-3"
+            class="mb-4"
           />
         </template>
         <NoResults :block="true" :length="Object.keys(items).length" />

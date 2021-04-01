@@ -37,7 +37,7 @@
         :value="results.totalScores[choice.i]"
         :max="results.totalVotesBalances"
         :titles="titles"
-        class="mb-3"
+        class="mb-4"
       />
     </div>
     <div v-if="ts >= payload.end">

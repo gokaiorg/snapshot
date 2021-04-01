@@ -1,12 +1,12 @@
 <template>
   <Block>
-    <div class="d-flex flex-items-center mb-1">
+    <div class="flex items-center mb-1">
       <a
         :href="
           `https://github.com/snapshot-labs/snapshot.js/tree/master/src/plugins/${plugin.key}`
         "
         target="_blank"
-        class="d-flex"
+        class="flex"
       >
         <img
           class="circle border mr-2 mb-1"

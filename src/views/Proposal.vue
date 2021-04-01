@@ -1,22 +1,22 @@
 <template>
   <Layout>
     <template #content-left>
-      <div class="px-4 px-md-0 mb-3">
+      <div class="px-6 md:px-0 mb-4">
         <router-link
           :to="{ name: domain ? 'home' : 'proposals' }"
           class="text-gray"
         >
-          <Icon name="back" size="22" class="v-align-middle" />
+          <Icon name="back" size="22" class="align-middle" />
           {{ space.name }}
         </router-link>
       </div>
-      <div class="px-4 px-md-0">
+      <div class="px-6 md:px-0">
         <template v-if="loaded">
           <h1 class="mb-2">
             {{ payload.name }}
             <span v-text="`#${id.slice(0, 7)}`" class="text-gray" />
           </h1>
-          <div class="mb-4">
+          <div class="mb-6">
             <State :proposal="proposal" />
             <UiDropdown
               class="float-right"
@@ -39,15 +39,15 @@
       </div>
       <Block
         v-if="loaded && ts >= payload.start && ts < payload.end"
-        class="mb-4"
+        class="mb-6"
         :title="$t('proposal.castVote')"
       >
-        <div class="mb-3">
+        <div class="mb-4">
           <UiButton
             v-for="(choice, i) in payload.choices"
             :key="i"
             @click="selectedChoice = i + 1"
-            class="d-block width-full mb-2"
+            class="block w-full mb-2"
             :class="selectedChoice === i + 1 && 'button--active'"
           >
             {{ _shorten(choice, 32) }}
@@ -68,7 +68,7 @@
               "
               class="tooltipped tooltipped-n break-word"
             >
-              <Icon name="warning" class="v-align-middle ml-1" />
+              <Icon name="warning" class="align-middle ml-1" />
             </a>
           </UiButton>
         </div>
@@ -76,7 +76,7 @@
           :disabled="voteLoading || !selectedChoice || !web3.account"
           :loading="voteLoading"
           @click="modalOpen = true"
-          class="d-block width-full button--submit"
+          class="block w-full button--submit"
         >
           {{ $t('proposal.vote') }}
         </UiButton>

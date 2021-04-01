@@ -1,5 +1,5 @@
 <template>
-  <Sticky class="mb-4">
+  <Sticky class="mb-6">
     <div
       v-if="env === 'develop'"
       class="p-3 text-center bg-blue"
@@ -7,13 +7,13 @@
     >
       {{ $t('demoSite') }}
     </div>
-    <nav id="topnav" class="border-bottom width-full bg-black">
+    <nav id="topnav" class="border-b w-full">
       <Container>
-        <div class="d-flex flex-items-center" style="height: 78px;">
-          <div class="flex-auto d-flex flex-items-center">
+        <div class="flex items-center h-20">
+          <div class="flex-auto flex items-center">
             <router-link
               :to="{ name: 'home' }"
-              class="d-inline-block d-flex flex-items-center"
+              class="inline-block flex items-center"
               style="font-size: 24px; padding-top: 4px;"
             >
               <span
@@ -26,7 +26,7 @@
             <router-link
               v-if="space"
               :to="{ name: domain ? 'home' : 'proposals' }"
-              class="d-inline-block d-flex flex-items-center"
+              class="inline-block flex items-center"
               style="font-size: 24px; padding-top: 4px;"
             >
               <Token :space="space.key" symbolIndex="space" size="28" />
@@ -44,7 +44,7 @@
                   :profile="web3.profile"
                   :address="web3.account"
                   size="16"
-                  class="mr-n1 mr-sm-2 mr-md-2 mr-lg-2 mr-xl-2 ml-n1"
+                  class="mr-0 sm:mr-2 -ml-1"
                 />
                 <span
                   v-if="web3.profile?.name || web3.profile?.ens"
@@ -67,7 +67,7 @@
               />
             </UiButton>
             <UiButton @click="modalAboutOpen = true" class="ml-2">
-              <span v-text="'?'" class="ml-n1 mr-n1" />
+              <span v-text="'?'" class="-ml-1 -mr-1" />
             </UiButton>
           </div>
         </div>

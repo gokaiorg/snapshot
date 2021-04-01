@@ -11,7 +11,7 @@
         <div class="float-right">
           <span :aria-label="baseToken.name" class="tooltipped tooltipped-n">
             <img
-              class="d-inline-block v-align-middle line-height-0 circle border"
+              class="inline-block align-middle line-height-0 rounded-full border"
               :src="baseTokenUrl"
               width="22"
               height="22"
@@ -32,7 +32,7 @@
       </div>
       <div
         :title="choices[1]"
-        class="mb-1 border-bottom bg-gray-dark rounded-top-0 rounded-md-top-2"
+        class="mb-1 border-b bg-gray-dark rounded-top-0 rounded-md-top-2"
         style="padding-bottom: 12px;"
       >
         <b>{{ _shorten(choices[1], 'name') }}</b>

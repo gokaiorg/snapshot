@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template #content-left>
-      <div class="px-4 px-md-0 mb-3">
+      <div class="px-6 md:px-0 mb-4">
         <router-link
           :to="{ name: domain ? 'home' : 'proposals' }"
           class="text-gray"
@@ -10,8 +10,8 @@
           {{ space.name }}
         </router-link>
       </div>
-      <div class="px-4 px-md-0">
-        <div class="d-flex flex-column mb-6">
+      <div class="px-6 md:px-0">
+        <div class="flex flex-column mb-6">
           <input
             v-model="form.name"
             maxlength="128"
@@ -44,8 +44,8 @@
             item-key="id"
           >
             <template #item="{element, index}">
-              <div class="d-flex mb-2">
-                <UiButton class="d-flex width-full">
+              <div class="flex mb-2">
+                <UiButton class="flex width-full">
                   <span class="mr-4">{{ index + 1 }}</span>
                   <input
                     v-model="element.text"

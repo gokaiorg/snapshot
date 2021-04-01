@@ -3,16 +3,16 @@
     <template v-slot:header>
       <h3>{{ $t('confirmVote') }}</h3>
     </template>
-    <div class="d-flex flex-column flex-auto">
-      <h4 class="m-4 mb-0 text-center">
+    <div class="flex flex-column flex-auto">
+      <h4 class="m-6 mb-0 text-center">
         {{
           $tc('sureToVote', [proposal.msg.payload.choices[selectedChoice - 1]])
         }}
         <br />
         {{ $t('cannotBeUndone') }}
       </h4>
-      <div class="m-4 p-4 border rounded-2 text-white">
-        <div class="d-flex">
+      <div class="m-6 p-6 border rounded-2 text-white">
+        <div class="flex">
           <span v-text="$t('option')" class="flex-auto text-gray mr-1" />
           {{ proposal.msg.payload.choices[selectedChoice - 1] }}
         </div>
@@ -29,7 +29,7 @@
             <Icon name="external-link" class="ml-1" />
           </a>
         </div>
-        <div class="d-flex">
+        <div class="flex">
           <span v-text="$t('votingPower')" class="flex-auto text-gray mr-1" />
           <span
             class="tooltipped tooltipped-nw"
@@ -55,7 +55,7 @@
     </div>
     <template v-slot:footer>
       <div class="col-6 float-left pr-2">
-        <UiButton @click="$emit('close')" type="button" class="width-full">
+        <UiButton @click="$emit('close')" type="button" class="w-full">
           {{ $t('cancel') }}
         </UiButton>
       </div>
@@ -65,7 +65,7 @@
           :loading="loading"
           @click="handleSubmit"
           type="submit"
-          class="width-full button--submit"
+          class="w-full button--submit"
         >
           {{ $t('proposal.vote') }}
         </UiButton>

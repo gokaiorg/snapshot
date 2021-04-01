@@ -1,10 +1,10 @@
 <template>
   <div>
     <Container>
-      <div class="mb-3 d-flex">
+      <div class="mb-4 flex">
         <div class="flex-auto">
           <div v-text="space.name" />
-          <div class="d-flex flex-items-center flex-auto">
+          <div class="flex items-center flex-auto">
             <h2 class="mr-2">
               {{ $t('proposals.header') }}
               <UiCounter
@@ -26,18 +26,18 @@
           class="ml-2"
         >
           <UiButton>
-            <Icon size="24" name="gear" class="mr-n4 ml-n4 mt-n1 d-block" />
+            <Icon size="24" name="gear" class="mr-n4 ml-n4 mt-n1 block" />
           </UiButton>
         </router-link>
       </div>
     </Container>
     <Container :slim="true">
       <Block v-if="space.about" class="mb-2">
-        <UiText :text="space.about"/>
+        <UiText :text="space.about" />
       </Block>
       <Block :slim="true">
         <div
-          class="px-4 py-3 bg-gray-dark overflow-auto menu-tabs rounded-top-0 rounded-md-top-2"
+          class="px-6 py-4 bg-gray-dark overflow-auto menu-tabs rounded-top-0 rounded-md-top-2"
         >
           <router-link
             v-for="state in states"
@@ -45,10 +45,10 @@
             v-text="$t(`proposals.states.${state}`)"
             :to="`/${key}/${state}`"
             :class="tab === state && 'text-white'"
-            class="mr-3 text-gray tab"
+            class="mr-4 text-gray tab"
           />
         </div>
-        <RowLoading v-if="loading" class="border-top" />
+        <RowLoading v-if="loading" class="border-t" />
         <div v-if="loaded">
           <RowProposal
             v-for="(proposal, i) in proposalsWithFilter"
@@ -57,12 +57,12 @@
             :space="space"
             :verified="space.verified"
             :i="i"
-            class="border-top"
+            class="border-t"
           />
         </div>
         <p
           v-if="loaded && Object.keys(proposalsWithFilter).length === 0"
-          class="p-4 m-0 border-top d-block"
+          class="p-6 m-0 border-t block"
         >
           {{ $t('proposals.noProposals') }}
         </p>

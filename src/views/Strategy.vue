@@ -1,13 +1,13 @@
 <template>
   <Layout>
     <template #content-left>
-      <div class="px-4 px-md-0 mb-3">
+      <div class="px-6 md:px-0 mb-4">
         <router-link :to="{ path: '/strategies' }" class="text-gray">
           <Icon name="back" size="22" class="v-align-middle" />
           {{ $t('strategiesPage') }}
         </router-link>
       </div>
-      <div class="px-4 px-md-0">
+      <div class="px-6 md:px-0">
         <h1 class="mb-2">
           {{ strategy.key }}
         </h1>

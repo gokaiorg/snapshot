@@ -2,9 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './vars';
-@import '~@primer/css';
 @import './assets/fonts/iconfont.css';
+
+/* || Fonts */
+@font-face {
+  font-family: 'Calibre';
+  src: url('./assets/fonts/Calibre-Medium.eot');
+  src: url('./assets/fonts/Calibre-Medium.eot?#iefix')
+  format('embedded-opentype'),
+  url('./assets/fonts/Calibre-Medium.woff') format('woff'),
+  url('./assets/fonts/Calibre-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('./assets/fonts/Calibre-Semibold.eot');
+  src: url('./assets/fonts/Calibre-Semibold.eot?#iefix')
+  format('embedded-opentype'),
+  url('./assets/fonts/Calibre-Semibold.woff') format('woff'),
+  url('./assets/fonts/Calibre-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* || Skin */
+*{
+  outline: none !important;
+}
 
 :root {
   --primary-color: #384aff;
@@ -17,40 +45,25 @@
   --block-bg: transparent;
 }
 
-@font-face {
-  font-family: 'Calibre';
-  src: url('./assets/fonts/Calibre-Medium.eot');
-  src: url('./assets/fonts/Calibre-Medium.eot?#iefix')
-      format('embedded-opentype'),
-    url('./assets/fonts/Calibre-Medium.woff') format('woff'),
-    url('./assets/fonts/Calibre-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Calibre';
-  src: url('./assets/fonts/Calibre-Semibold.eot');
-  src: url('./assets/fonts/Calibre-Semibold.eot?#iefix')
-      format('embedded-opentype'),
-    url('./assets/fonts/Calibre-Semibold.woff') format('woff'),
-    url('./assets/fonts/Calibre-Semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-html,
-body,
 #app {
+  min-height: 100vh;
+}
+
+#skin {
   background: var(--bg-color);
   color: var(--text-color);
-  font-family: $body-font;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply text-lg;
 }
 
-* {
-  outline: none !important;
+#topnav {
+  background-color: var(--bg-color);
+}
+
+*[class*="border"] {
+  border-color: var(--border-color) !important;
 }
 
 h1,
@@ -58,19 +71,15 @@ h2,
 h3,
 h4 {
   color: var(--heading-color);
-  font-weight: $font-weight-bold;
+  @apply font-semibold;
 }
 
 b {
-  font-weight: $font-weight-bold;
+  @apply font-semibold;
 }
 
 p {
   font-size: 22px;
-}
-
-#app {
-  min-height: 100vh;
 }
 
 a, .a {
@@ -92,66 +101,6 @@ a, .a {
   color: var(--link-color);
   background-color: transparent;
   border: none;
-}
-
-textarea {
-  padding-top: 16px;
-  font-size: 20px;
-  line-height: 1.4em;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--border-color);
-  background-clip: padding-box;
-  border: 0;
-  border-radius: 0;
-
-  &:hover {
-    background-color: var(--border-color);
-  }
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-
-.column {
-  width: 160px;
-}
-
-.anim-fade-in {
-  animation-duration: 0.6s !important;
-}
-
-.line-height-0 {
-  line-height: 0;
-}
-
-.bg-black {
-  background-color: var(--bg-color);
-}
-
-.State {
-  font-size: 16px;
-  line-height: 30px;
-  height: 28px;
-  vertical-align: middle;
-  padding: 0 12px;
-  border-radius: 14px;
-}
-
-.notification {
-  color: white !important;
-}
-
-.border,
-.border-md,
-.border-lg,
-.border-bottom,
-.border-top {
-  border-color: var(--border-color) !important;
 }
 
 .bg-gray-dark {
@@ -180,6 +129,55 @@ textarea {
 
 .bg-blue {
   background-color: var(--primary-color) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 0;
+
+  &:hover {
+    background-color: var(--border-color);
+  }
+}
+
+/* || Components */
+textarea {
+  padding-top: 16px;
+  font-size: 20px;
+  line-height: 1.4em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.column {
+  width: 160px;
+}
+
+.anim-fade-in {
+  animation-duration: 0.6s !important;
+}
+
+.line-height-0 {
+  line-height: 0;
+}
+
+.State {
+  font-size: 16px;
+  line-height: 30px;
+  height: 28px;
+  vertical-align: middle;
+  padding: 0 12px;
+  border-radius: 14px;
+}
+
+.notification {
+  color: white !important;
 }
 
 .tab {
@@ -241,8 +239,4 @@ textarea {
 .sliding {
   overflow: auto;
   white-space: nowrap;
-}
-
-.border-color {
-  color: var(--border-color);
 }

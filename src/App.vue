@@ -1,9 +1,9 @@
 <template>
-  <div :class="space && space.skin" id="app" class="overflow-hidden">
+  <div :class="space && space.skin" id="skin" class="overflow-hidden">
     <UiLoading v-if="app.loading || !app.init" class="overlay big" />
     <div v-else>
       <Topnav />
-      <div class="pb-6 overflow-hidden">
+      <div class="pb-10 overflow-hidden">
         <router-view :key="$route.path" class="flex-auto" />
       </div>
     </div>

@@ -24,11 +24,11 @@
       </a>
     </div>
     <div class="m-4 p-4 mt-3 border rounded-2 text-white">
-      <div class="d-flex">
+      <div class="flex">
         <span v-text="$t('language')" class="flex-auto text-gray mr-1" />
         <a @click="changeLang()">{{ languages[$i18n.locale] }}</a>
       </div>
-      <div class="d-flex">
+      <div class="flex">
         <span v-text="$t('version')" class="flex-auto text-gray mr-1" />
         <a
           v-if="commitSha"
@@ -39,21 +39,21 @@
         </a>
         <span v-else v-text="pkg.version" />
       </div>
-      <div class="d-flex">
+      <div class="flex">
         <span v-text="$t('license')" class="flex-auto text-gray mr-1" />
         {{ pkg.license }}
       </div>
-      <div class="d-flex">
+      <div class="flex">
         <span v-text="$t('network')" class="flex-auto text-gray mr-1" />
         <a :href="web3.network.explorer" target="_blank">
           {{ web3.network.network }} ({{ web3.network.key }})
         </a>
       </div>
-      <div class="d-flex">
+      <div class="flex">
         <span v-text="$t('ipfsServer')" class="flex-auto text-gray mr-1" />
         {{ gateway }}
       </div>
-      <div class="d-flex">
+      <div class="flex">
         <span v-text="$t('hub')" class="flex-auto text-gray mr-1" />
         {{ hubUrl }}
       </div>

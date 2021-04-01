@@ -9,7 +9,7 @@
       v-for="(vote, address, i) in visibleVotes"
       :key="i"
       :style="i === 0 && 'border: 0 !important;'"
-      class="px-4 py-3 border-top d-flex"
+      class="px-6 py-4 border-t flex"
     >
       <User
         :profile="vote.profile"
@@ -50,7 +50,7 @@
     <a
       v-if="!showAllVotes && Object.keys(votes).length > 10"
       @click="showAllVotes = true"
-      class="px-4 py-3 border-top text-center d-block bg-gray-dark rounded-bottom-0 rounded-md-bottom-2"
+      class="px-6 py-4 border-t text-center block bg-gray-dark rounded-bottom-0 rounded-md-bottom-2"
     >
       {{ $t('seeMore') }}
     </a>
