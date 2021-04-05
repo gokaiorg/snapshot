@@ -10,8 +10,12 @@
           {{ space.name }}
         </router-link>
       </div>
+      <Block v-if="space.filters?.onlyMembers && !isMember">
+        <Icon name="warning" class="mr-1"/>
+        {{ $t('create.onlyMembersWarning') }}
+      </Block>
       <div class="px-6 md:px-0">
-        <div class="flex flex-column mb-6">
+            <div class="flex flex-column mb-6">
           <input
             v-model="form.name"
             maxlength="128"
@@ -43,9 +47,9 @@
             :component-data="{ name: 'list' }"
             item-key="id"
           >
-            <template #item="{element, index}">
+            <template #item="{ element, index }">
               <div class="flex mb-2">
-                <UiButton class="flex width-full">
+                  <UiButton class="flex width-full">
                   <span class="mr-4">{{ index + 1 }}</span>
                   <input
                     v-model="element.text"
@@ -173,6 +177,14 @@ export default {
     space() {
       return this.app.spaces[this.key];
     },
+    isMember() {
+      const members = this.space.members.map(address => address.toLowerCase());
+      return (
+        this.$auth.isAuthenticated.value &&
+        this.web3.account &&
+        members.includes(this.web3.account.toLowerCase())
+      );
+    },
     isValid() {
       // const ts = (Date.now() / 1e3).toFixed();
       return (
@@ -188,7 +200,9 @@ export default {
         this.form.snapshot &&
         this.form.snapshot > this.blockNumber / 2 &&
         this.choices.length >= 2 &&
-        !this.choices.some(a => a.text === '')
+        !this.choices.some(a => a.text === '') &&
+        (!this.space.filters?.onlyMembers ||
+          (this.space.filters?.onlyMembers && this.isMember))
       );
     }
   },

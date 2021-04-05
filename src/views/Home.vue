@@ -24,9 +24,9 @@
         >
           <Block
             class="text-center extra-icon-container"
-            style="height: 250px; margin-bottom: 24px !important;"
+            style="height: 250px; margin-bottom: 24px !important"
           >
-            <span class="relative inline-block">
+            <span class="position-relative d-inline-block">
               <UiCounter
                 v-if="space._activeProposals"
                 :counter="space._activeProposals"
@@ -36,7 +36,7 @@
                 :space="space.key"
                 symbolIndex="space"
                 size="98"
-                class="my-4"
+                class="my-3"
               />
             </span>
             <StatefulIcon
@@ -87,11 +87,12 @@ export default {
           };
         })
         .filter(space => !space.private);
-      return orderBy(list, ['favorite', 'spotlight'], ['desc', 'asc']).filter(
-        space =>
-          JSON.stringify(space)
-            .toLowerCase()
-            .includes(this.q.toLowerCase())
+      return orderBy(
+        list,
+        ['favorite', 'spotlight'],
+        ['desc', 'asc']
+      ).filter(space =>
+        JSON.stringify(space).toLowerCase().includes(this.q.toLowerCase())
       );
     }
   },
