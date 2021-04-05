@@ -3,18 +3,18 @@
     <div
       v-if="env === 'develop'"
       class="p-3 text-center bg-blue"
-      style="color: white; font-size: 20px;"
+      style="color: white; font-size: 20px"
     >
       {{ $t('demoSite') }}
     </div>
     <nav id="topnav" class="border-b w-full">
       <Container>
-        <div class="flex items-center h-20">
+        <div class="flex items-center h-20" style="height: 78px">
           <div class="flex-auto flex items-center">
             <router-link
               :to="{ name: 'home' }"
               class="inline-block flex items-center"
-              style="font-size: 24px; padding-top: 4px;"
+              style="font-size: 24px; padding-top: 4px"
             >
               <span
                 :class="space && 'hide-sm'"
@@ -27,7 +27,7 @@
               v-if="space"
               :to="{ name: domain ? 'home' : 'proposals' }"
               class="inline-block flex items-center"
-              style="font-size: 24px; padding-top: 4px;"
+              style="font-size: 24px; padding-top: 4px"
             >
               <Token :space="space.key" symbolIndex="space" size="28" />
               <span class="ml-2" v-text="space.name" />
