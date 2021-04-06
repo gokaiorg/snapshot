@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     preserveHtmlElements: false,
     mode: 'layers',
     content: ['./index.html', './src/**/*.{vue,js,ts}']
