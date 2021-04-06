@@ -7,7 +7,7 @@
             <Search v-model="q" :placeholder="$t('searchPlaceholder')" />
           </UiButton>
         </div>
-        <div class="ml-3 text-right hide-sm">
+        <div class="flex items-center ml-3 hide-sm">
           {{ $tc('spaceCount', [_n(spaces.length)]) }}
           <router-link :to="{ name: 'setup' }" class="hide-md ml-3">
             <UiButton>{{ $t('createSpace') }}</UiButton>
@@ -24,7 +24,7 @@
         >
           <Block
             class="text-center extra-icon-container"
-            style="height: 250px; margin-bottom: 24px !important"
+            style="height: 250px"
           >
             <span class="position-relative d-inline-block">
               <UiCounter

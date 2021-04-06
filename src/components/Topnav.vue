@@ -33,7 +33,7 @@
               <span class="ml-2" v-text="space.name" />
             </router-link>
           </div>
-          <div :key="web3.account">
+          <div :key="web3.account" class="flex items-center">
             <template v-if="$auth.isAuthenticated.value">
               <UiButton
                 @click="modalOpen = true"

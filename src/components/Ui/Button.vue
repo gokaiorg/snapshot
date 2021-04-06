@@ -22,15 +22,9 @@ export default {
 
 <style scoped lang="scss">
 .button {
-  border: 1px solid var(--border-color);
-  background-color: transparent;
+  @apply flex items-center bg-transparent border rounded-full px-6 py-2 outline-none text-lg;
+  border-color: var(--border-color);
   color: var(--link-color);
-  border-radius: 23px;
-  padding: 0 24px;
-  outline: none;
-  line-height: 46px;
-  height: 46px;
-  font-size: 18px;
 
   &.button--submit {
     color: white;
